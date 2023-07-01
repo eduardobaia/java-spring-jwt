@@ -22,32 +22,36 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User saveUser(User user) {
+        log.info("Saving user");
         return userRepository.save(user);
     }
 
     @Override
     public Role saveRole(Role role) {
+        log.info("Saving new role {} ", role.getName());
         return roleRespository.save(role);
     }
 
     @Override
     public void addRoleToUser(String username, String roleName) {
+
         User user = userRepository.findByUsername(username);
         Role role = roleRespository.findByRoleName(roleName);
+        log.info("Assing  new role {} ", role.getName());
         // I can do it cause i'm using @transactional for all methods.
         user.getRoles().add(role);
-
-
 
     }
 
     @Override
     public User getUser(String username) {
+        log.info("Fetching user {} ", username);
         return userRepository.findByUsername(username);
     }
 
     @Override
     public List<User> getUsers() {
+        log.info("Fetching all users");
         return userRepository.findAll();
     }
 }
