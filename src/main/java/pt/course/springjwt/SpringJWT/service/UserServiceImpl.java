@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
     public void addRoleToUser(String username, String roleName) {
 
         User user = userRepository.findByUsername(username);
-        Role role = roleRespository.findByRoleName(roleName);
+        Role role = roleRespository.findByName(roleName);
         log.info("Assing  new role {} ", role.getName());
         // I can do it cause i'm using @transactional for all methods.
         user.getRoles().add(role);

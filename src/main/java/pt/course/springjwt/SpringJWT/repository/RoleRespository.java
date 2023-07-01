@@ -7,6 +7,6 @@ import pt.course.springjwt.SpringJWT.domain.Role;
 @Repository
 public interface RoleRespository extends JpaRepository<Role, Long> {
 
-    Role findByRoleName(String roleName);
+    Role findByName(String roleName);
 
 }
