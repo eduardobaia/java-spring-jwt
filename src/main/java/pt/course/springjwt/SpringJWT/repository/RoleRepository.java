@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import pt.course.springjwt.SpringJWT.domain.Role;
 
 @Repository
-public interface RoleRespository extends JpaRepository<Role, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
     Role findByName(String roleName);
 

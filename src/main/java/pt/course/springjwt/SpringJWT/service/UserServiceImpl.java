@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pt.course.springjwt.SpringJWT.domain.Role;
 import pt.course.springjwt.SpringJWT.domain.User;
-import pt.course.springjwt.SpringJWT.repository.RoleRespository;
+import pt.course.springjwt.SpringJWT.repository.RoleRepository;
 import pt.course.springjwt.SpringJWT.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
-    private final RoleRespository roleRespository;
+    private final RoleRepository roleRespository;
 
     @Override
     public User saveUser(User user) {
