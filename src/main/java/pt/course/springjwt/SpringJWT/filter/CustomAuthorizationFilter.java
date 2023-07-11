@@ -34,9 +34,12 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        if(request.getServletPath().equals("/api/login")){
+        //here says, if its api,login ok do filter without nothing, so
+        // allow this to pass.... if not..
+        if(request.getServletPath().equals("/api/login") || request.getServletPath().equals("/api/token/refresh") ){
             filterChain.doFilter(request,response);
         }else{
+            //do validation if the token is valid etc.
             String authorizationHeader = request.getHeader("Authorization");
             if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")){
 
